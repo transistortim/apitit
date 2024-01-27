@@ -14,3 +14,7 @@ To use Apitit in a project::
    trans_pos = apt.get_transaction_positions()
 
    pprint(trans_pos)
+
+
+The ``examples`` directory contains a demo script showing how to retrieve and write data
+to InfluxDB.
