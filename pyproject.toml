@@ -17,6 +17,7 @@ classifiers = [
 ]
 # Runtime dependencies
 dependencies = [
+    "requests",
 ]
 
 [project.optional-dependencies]
