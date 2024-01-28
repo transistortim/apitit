@@ -33,7 +33,8 @@ import yaml
 from apitit import Apitit
 
 
-CONFIG_FILE = Path(__file__).parent / "config.yml"
+CONFIG_FILE_LOCAL = Path(__file__).parent / "config.yml"
+CONFIG_FILE_DOTCONFIG = Path.home() / ".config" / "apitit" / "config.yml"
 
 
 def transactions_as_influx_dict(transactions):
@@ -121,8 +122,11 @@ def positions_as_influx_dict(transaction_positions, transactions):
 
 
 if __name__ == "__main__":
-    if CONFIG_FILE.is_file:
-        with open(CONFIG_FILE, "r") as f:
+    if CONFIG_FILE_LOCAL.is_file():
+        with open(CONFIG_FILE_LOCAL, "r") as f:
+            config = yaml.safe_load(f)
+    elif CONFIG_FILE_DOTCONFIG.is_file():
+        with open(CONFIG_FILE_DOTCONFIG, "r") as f:
             config = yaml.safe_load(f)
     else:
         raise IOError("Config file not found.")
