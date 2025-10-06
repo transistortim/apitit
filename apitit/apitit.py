@@ -33,22 +33,27 @@ class Apitit:
         "Dresden": "https://kartenservice.studentenwerk-dresden.de/",
         "Freiberg": "https://kartenservice.studentenwerk-freiberg.de/",
         "Freiburg": "https://www.swfr.de/",
-        "Paderborn": "https://kartenservice.studentenwerk-pb.de/",
         "Stuttgart": "https://cardservice-sws.cpwas.de/",
     }
     # Special cases differing from scheme, hardcode API urls
     SPECIAL_URLS = {
         "Leipzig": ApititURLs(
-            # homepage is at top level
+            # Homepage is at top level
             homepage="https://kartenservice.studentenwerk-leipzig.de/",
             tla="https://kartenservice.studentenwerk-leipzig.de/TL1/TLA",
             kasvc="https://kartenservice.studentenwerk-leipzig.de/TL1/TLM/KASVC",
         ),
         "Mannheim": ApititURLs(
-            # homepage has additional path component
-            homepage="https://app.stw-ma.de/nkp/KartenService",
-            tla="https://app.stw-ma.de/TL1/TLA",
-            kasvc="https://app.stw-ma.de/TL1/TLM/KASVC",
+            # Homepage has additional path component
+            homepage="https://tl1.stw-ma.de/nkp/KartenService",
+            tla="https://tl1.stw-ma.de/TL1/TLA",
+            kasvc="https://tl1.stw-ma.de/TL1/TLM/KASVC",
+        ),
+        "Paderborn": ApititURLs(
+            # TLA & KASVC at different domain
+            homepage="https://kartenservice.studentenwerk-pb.de/KartenService",
+            tla="https://ks.stwpb.de:2342/TL1/TLA",
+            kasvc="https://ks.stwpb.de:2342/TL1/TLM/KASVC",
         ),
     }
 
