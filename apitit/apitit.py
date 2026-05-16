@@ -88,6 +88,16 @@ class Apitit:
             raise ValueError(
                 'Sorry, given location "{location}" is currently not supported.'
             )
+        # Use Firefox as user agent if python-requests is blocked
+        if location == "Paderborn":
+            self.headers = {
+                "User-Agent": (
+                    "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 "
+                    "Firefox/140.0"
+                )
+            }
+        else:
+            self.headers = None
         if not api_credentials:
             api_credentials = self.get_api_credentials()
         self.api_credentials = api_credentials
@@ -175,6 +185,7 @@ class Apitit:
         r = requests.post(
             url,
             params=params,
+            headers=self.headers,
             auth=(self.api_credentials.user, self.api_credentials.password),
         )
         self.raise_for_status_with_content(r)
@@ -195,6 +206,7 @@ class Apitit:
         r = requests.get(
             url,
             params=params,
+            headers=self.headers,
             auth=(self.api_credentials.user, self.api_credentials.password),
         )
         self.raise_for_status_with_content(r)
@@ -228,6 +240,7 @@ class Apitit:
             login_url,
             json=payload,
             params=params,
+            headers=self.headers,
             auth=(self.api_credentials.user, self.api_credentials.password),
         )
         self.raise_for_status_with_content(r)
@@ -251,6 +264,7 @@ class Apitit:
         r = requests.get(
             url,
             params=params,
+            headers=self.headers,
             auth=(self.api_credentials.user, self.api_credentials.password),
         )
         self.raise_for_status_with_content(r)
@@ -286,6 +300,7 @@ class Apitit:
         r = requests.get(
             url,
             params=params,
+            headers=self.headers,
             auth=(self.api_credentials.user, self.api_credentials.password),
         )
         self.raise_for_status_with_content(r)
@@ -325,6 +340,7 @@ class Apitit:
         r = requests.get(
             url,
             params=params,
+            headers=self.headers,
             auth=(self.api_credentials.user, self.api_credentials.password),
         )
         self.raise_for_status_with_content(r)
