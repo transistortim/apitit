@@ -17,7 +17,6 @@ Supported universities
 
 Currently, there is built-in support to access the online card service of:
 
-* Aachen
 * Augsburg
 * Dresden
 * Leipzig

@@ -28,8 +28,7 @@ class Apitit:
 
     # Base URLs following the same scheme (API urls can be generated)
     BASE_URLS = {
-        "Aachen": "https://kartenservice.stw.rwth-aachen.de/",
-        "Augsburg": "https://kartenservice.studentenwerk-augsburg.de/",
+        "Augsburg": "https://kartenservice.studierendenwerk-augsburg.de/",
         "Dresden": "https://kartenservice.studentenwerk-dresden.de/",
         "Freiberg": "https://kartenservice.studentenwerk-freiberg.de/",
         "Freiburg": "https://www.swfr.de/",
